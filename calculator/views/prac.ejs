@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        .calculator{
+            height: 300px;
+            width: 200px;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 12px;
+            box-shadow: 0px 0px 8px rgb(219, 219, 219);
+            background: #151010;
+            
+        }
+        #display{
+            height: 40px;
+            width: 97%;
+            border: 1px solid black;
+            border-radius: 5px;
+            color: white;
+
+        }
+        .buttons{
+            margin-top: 10px;
+        }
+        .button{
+            position: relative;
+            height: 50px;
+            width: 35px;
+            margin: 6px;
+            background:rgba(235, 114, 2, 0.695);
+            border: 0px;
+            border-radius: 10px;
+
+        }
+    .button:hover {
+        box-shadow: 0 0 7px rgba(198, 167, 167, 0.8);
+        
+    }
+    </style>
+</head>
+<body style="background-color: #222222">
+    <div class="calculator">
+        <input type="text" name="display" id="display" disabled>
+        <div class="buttons">
+            <button class="button" onclick="numbers(1)">1</button>
+            <button class="button" onclick="numbers(2)">2</button> 
+            <button class="button" onclick="numbers(3)">3</button> 
+            <button class="button" onclick="operator('+')">+</button> 
+            <br>
+            <button class="button" onclick="numbers(4)">4</button> 
+            <button class="button" onclick="numbers(5)">5</button>
+            <button class="button" onclick="numbers(6)">6</button>
+            <button class="button" onclick="operator('-')">-</button>  
+            <br>
+            <button class="button" onclick="numbers(7)">7</button>
+            <button class="button" onclick="numbers(8)">8</button>
+            <button class="button" onclick="numbers(9)">9</button>
+            <button class="button" onclick="operator('*')">*</button>
+            <br>
+           
+            <button class="button" onclick="numbers(0)">0</button>
+            <button class="button" onclick="clearDisplay()">C</button> 
+            <button class="button" onclick="calculate()">=</button> 
+            <button class="button" onclick="operator('/')">/</button>  
+               
+              
+           
+        </div>
+
+    </div>
+
+    <script>
+        function numbers(num){
+            document.getElementById('display').value +=num;
+        }
+        function operator(op){
+            document.getElementById('display').value +=' '+op+' ';
+        }
+        function clearDisplay(){
+            document.getElementById('display').value ='';
+        }
+        function calculate(){
+           let val= document.getElementById('display');
+           val.value=eval(val.value);
+        }
+    </script>
+</body>
+</html>
